@@ -19,17 +19,24 @@ import java.util.List;
 public interface PersonManager extends GenericManager<Person, Long> {
 
 	@GET
+	@Path("{firstname}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	List<PersonDTO> findByFirstName(@PathParam("firstname") String firstname);
+	// URL: /services/api/people/Matt
+	
+	@GET
 	@Path("/search/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<PersonDTO> findByLastName(@QueryParam("lastname") String lastName);
 	// URL: /services/api/people/search?lastname=Raible
 
 	@GET
-	@Path("email/{email}")
+	@Path("/email/")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Person> findByEmail(@PathParam("email") String email);
-
+	List<PersonDTO> findByEmail(@QueryParam("email") String email);
+	// URL: /services/api/people/email?email=matt@email.com
+	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Person> getPeople();
+	List<PersonDTO> getPeople();
 }

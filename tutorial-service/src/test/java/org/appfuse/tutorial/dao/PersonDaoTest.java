@@ -15,6 +15,12 @@ public class PersonDaoTest extends BaseDaoTestCase {
     private PersonDao personDao;
 
     @Test
+    public void testFindPersonByFirstName() throws Exception {
+        List<Person> people = personDao.findByFirstName("Matt");
+        assertTrue(people.size() > 0);
+    }
+    
+    @Test
     public void testFindPersonByLastName() throws Exception {
         List<Person> people = personDao.findByLastName("Raible");
         assertTrue(people.size() > 0);

@@ -57,7 +57,7 @@ public class PersonManagerEasyMockTest {
         verify(dao);
     }
 
-    @Test
+    /*@Test
     public void testGetByLastName() {
         log.debug("testing getByLastName");
 
@@ -71,7 +71,7 @@ public class PersonManagerEasyMockTest {
         List result = manager.findByLastName(lastName);
         assertSame(people, result);
         verify(dao);
-    }
+    }*/
 
     public void testSavePerson() {
         log.debug("testing savePerson");

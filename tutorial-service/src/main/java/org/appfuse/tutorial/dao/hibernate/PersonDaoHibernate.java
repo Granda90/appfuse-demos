@@ -15,11 +15,18 @@ public class PersonDaoHibernate extends GenericDaoHibernate<Person, Long>impleme
 		super(Person.class);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Person> findByFirstName(String firstName) {
+		return getSession().createCriteria(Person.class).add(Restrictions.eq("firstName", firstName)).list();
+	}
+
+	@SuppressWarnings("unchecked")
 	public List<Person> findByLastName(String lastName) {
 		return getSession().createCriteria(Person.class).add(Restrictions.eq("lastName", lastName)).list();
 	}
 
 	public List<Person> findByEmail(String email) {
+		@SuppressWarnings("unchecked")
 		List<Person> personList = getSession().createCriteria(Person.class).createAlias("personEmail", "pe")
 				.add(Restrictions.eq("pe.email", email)).list();
 		return personList;

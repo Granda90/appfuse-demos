@@ -32,22 +32,39 @@ public class PersonManagerImpl extends GenericManagerImpl<Person, Long>implement
 		this.personDao = personDao;
 	}
 
+	public List<PersonDTO> findByFirstName(String firstName) {
+		List<PersonDTO> personDTOs = null;
+		List<Person> personList = personDao.findByFirstName(firstName);
+
+		personDTOs = PersonMapper.INSTANCE.personsToPersonsDTOs(personList);
+
+		return personDTOs;
+	}
+
 	public List<PersonDTO> findByLastName(String lastName) {
 		List<PersonDTO> personDTOs = null;
 		List<Person> personList = personDao.findByLastName(lastName);
 
 		personDTOs = PersonMapper.INSTANCE.personsToPersonsDTOs(personList);
-		
+
 		return personDTOs;
 	}
 
-	public List<Person> findByEmail(String email) {
-		return personDao.findByEmail(email);
+	public List<PersonDTO> findByEmail(String email) {
+		List<PersonDTO> personDTOs = null;
+		List<Person> personList = personDao.findByEmail(email);
+
+		personDTOs = PersonMapper.INSTANCE.personsToPersonsDTOs(personList);
+
+		return personDTOs;
 	}
 
-	public List<Person> getPeople() {
+	public List<PersonDTO> getPeople() {
+		List<PersonDTO> personDTOs = null;
 		List<Person> personList = personDao.getAll();
 
-		return personList;
+		personDTOs = PersonMapper.INSTANCE.personsToPersonsDTOs(personList);
+
+		return personDTOs;
 	}
 }
