@@ -1,69 +1,114 @@
 package org.appfuse.tutorial.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.appfuse.model.BaseObject;
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
 
-import javax.persistence.*;
-
-@Entity @Table(name="person")
+@XmlRootElement
+@Entity
+@Table(name = "person")
 public class Person extends BaseObject {
-    private Long id;
-    private String firstName;
-    private String lastName;
+	private Long personId;
+	private Set<PersonEmail> personEmail;
+	private String firstName;
+	private String lastName;
 
-    // START SNIPPET: id
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
-    // END SNIPET: id
+	// START SNIPPET: personId
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "person_id", unique = true, nullable = false)
+	public Long getPersonId() {
+		return personId;
+	}
+	// END SNIPET: personId
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setPersonId(Long personId) {
+		this.personId = personId;
+	}
 
-    @Column(name="first_name", length=50)
-    public String getFirstName() {
-        return firstName;
-    }
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
+	// @JsonIgnore
+	// @XmlTransient
+	public Set<PersonEmail> getPersonEmail() {
+		return personEmail;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public void setPersonEmail(Set<PersonEmail> personEmail) {
+		this.personEmail = personEmail;
+	}
 
-    @Column(name="last_name", length=50) 
-    public String getLastName() {
-        return lastName;
-    }
+	@Column(name = "first_name", length = 50)
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
+	@Column(name = "last_name", length = 50)
+	public String getLastName() {
+		return lastName;
+	}
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-        Person person = (Person) o;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((personId == null) ? 0 : personId.hashCode());
+		return result;
+	}
 
-        if (firstName != null ? !firstName.equals(person.firstName) : person.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(person.lastName) : person.lastName != null) return false;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (personId == null) {
+			if (other.personId != null)
+				return false;
+		} else if (!personId.equals(other.personId))
+			return false;
+		return true;
+	}
 
-        return true;
-    }
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
 
-    public int hashCode() {
-        int result;
-        result = (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        return result;
-    }
-
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }

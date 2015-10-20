@@ -113,7 +113,7 @@
     </table>
 
     <table name='person'>
-        <column>id</column>
+        <column>person_id</column>
         <column>first_name</column>
         <column>last_name</column>
         <row>
@@ -121,5 +121,23 @@
             <value>Matt</value>
             <value>Raible</value>
         </row>
+        <row>
+            <value>2</value>
+            <value>Mike</value>
+            <value>Guzman</value>
+        </row>        
     </table>
+    <table name='person_email'>
+    	<column>person_email_id</column>
+        <column>person_id</column>
+        <column>email</column>
+        <column>email_type</column>
+        <row>
+            <value>1</value>
+            <value>1</value>            
+            <value>matt@email.com</value>
+            <value>personal</value>
+        </row>
+    </table>    
+    
 </dataset>

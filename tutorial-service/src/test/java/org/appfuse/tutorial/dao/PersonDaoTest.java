@@ -19,6 +19,12 @@ public class PersonDaoTest extends BaseDaoTestCase {
         List<Person> people = personDao.findByLastName("Raible");
         assertTrue(people.size() > 0);
     }
+    
+    /*@Test
+    public void testFindPersonByEmail() throws Exception {
+        List<Person> people = personDao.findByEmail("matt@email.com");
+        assertTrue(people.size() > 0);
+    }*/
 
     @Test(expected=DataAccessException.class)
     public void testAddAndRemovePerson() throws Exception {
@@ -29,17 +35,17 @@ public class PersonDaoTest extends BaseDaoTestCase {
         person = personDao.save(person);
         flush();
 
-        person = personDao.get(person.getId());
+        person = personDao.get(person.getPersonId());
 
         assertEquals("Country", person.getFirstName());
-        assertNotNull(person.getId());
+        assertNotNull(person.getPersonId());
 
         log.debug("removing person...");
 
-        personDao.remove(person.getId());
+        personDao.remove(person.getPersonId());
         flush();
 
         // should throw DataAccessException
-        personDao.get(person.getId());
+        personDao.get(person.getPersonId());
     }
 }
