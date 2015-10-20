@@ -1,0 +1,12 @@
+﻿<h2>Lista de Personas</h2>
+<div ng-controller="personController">
+	<li ng-repeat="person in data.persons">
+	
+		<span>{{person.firstName}} {{person.lastName}}</span>
+		<ul>
+			<li ng-repeat="personEmail in person.personEmail">
+				<span>{{personEmail.email}}</span> <span>[{{personEmail.emailType}}]</span>
+			</li>
+		</ul>
+	</li>
+</div>

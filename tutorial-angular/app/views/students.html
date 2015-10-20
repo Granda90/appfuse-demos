@@ -1,0 +1,6 @@
+﻿<h2>Lista de Estudiantes</h2>
+<div ng-controller="studentsController">
+    <li ng-repeat="student in data.students">
+        <span>{{student.name}}</span> <span>[{{student.course}}]</span>
+    </li>
+</div>

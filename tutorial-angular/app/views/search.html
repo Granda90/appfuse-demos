@@ -1,0 +1,9 @@
+<h2>Buscar Estudiantes</h2>
+<form ng-controller="searchStudentsController">
+    <label for="name">Nombre: </label>
+    <input type="text" id="name" value="" data-ng-model="student.name" />
+    <button ng-click="search(student)">Buscar</button>
+    <li ng-repeat="student in data.students">
+        <span>{{student.name}}</span> <span>[{{student.course}}]</span>
+    </li>
+</form>
