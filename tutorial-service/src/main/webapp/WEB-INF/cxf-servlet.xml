@@ -21,7 +21,8 @@
             <cxf:logging/>
         </jaxrs:features>
         <jaxrs:serviceBeans>
-            <ref bean="personManager"/>
+			<ref bean="studentManager" />
+            <ref bean="personManager" />
             <ref bean="userManager"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>

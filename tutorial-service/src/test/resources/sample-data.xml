@@ -111,7 +111,21 @@
             <value description="role_id">-1</value>
         </row>
     </table>
-
+    <table name='student'>
+        <column>student_id</column>
+        <column>name</column>
+        <column>count</column>
+        <row>
+            <value>1</value>
+            <value>Keylor</value>
+            <value>1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Mike</value>
+            <value>0</value>
+        </row>        
+    </table>
     <table name='person'>
         <column>person_id</column>
         <column>first_name</column>
@@ -127,6 +141,7 @@
             <value>Guzman</value>
         </row>        
     </table>
+    
     <table name='person_email'>
     	<column>person_email_id</column>
         <column>person_id</column>
@@ -137,13 +152,7 @@
             <value>1</value>            
             <value>matt@email.com</value>
             <value>personal</value>
-        </row>
-        <row>
-            <value>2</value>
-            <value>1</value>            
-            <value>matt@una.cr</value>
-            <value>universidad</value>
-        </row>        
+        </row>    
     </table>    
     
 </dataset>

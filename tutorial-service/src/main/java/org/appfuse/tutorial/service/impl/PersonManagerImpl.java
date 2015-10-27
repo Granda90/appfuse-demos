@@ -1,8 +1,6 @@
 package org.appfuse.tutorial.service.impl;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import javax.jws.WebService;
 
@@ -11,7 +9,6 @@ import org.appfuse.tutorial.dao.PersonDao;
 import org.appfuse.tutorial.dto.PersonDTO;
 import org.appfuse.tutorial.mapper.PersonMapper;
 import org.appfuse.tutorial.model.Person;
-import org.appfuse.tutorial.model.PersonEmail;
 import org.appfuse.tutorial.service.PersonManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
