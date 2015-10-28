@@ -21,6 +21,14 @@
             </bean>
         </constructor-arg>
     </bean>
+    
+    <bean id="studentManager" class="org.appfuse.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="org.appfuse.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="org.appfuse.tutorial.model.Student"/>
+            </bean>
+        </constructor-arg>
+    </bean>    
     <!--PersonManager-END-->
 
     <!-- Add new Managers here -->

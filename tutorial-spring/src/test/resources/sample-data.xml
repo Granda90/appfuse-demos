@@ -106,4 +106,23 @@
             <value>Johnson</value>
         </row>
     </table>
+    
+    <table name='student'>
+        <column>id</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>course</column>        
+        <row>
+            <value>1</value>
+            <value>Julio</value>
+            <value>Marin</value>
+            <value>Desarrollo Web</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Juan</value>
+            <value>Perez</value>
+            <value>Arquitectura</value>
+        </row>
+    </table>
 </dataset>
