@@ -10,5 +10,6 @@
         <mapping class="org.appfuse.model.Role"/>
         <mapping class="org.appfuse.tutorial.model.Person"/>
         <mapping class="org.appfuse.tutorial.model.Comida"/>
+        <mapping class="org.appfuse.tutorial.model.GameField"/>
     </session-factory>
 </hibernate-configuration>

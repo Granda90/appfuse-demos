@@ -122,4 +122,22 @@
             <value>Raible</value>
         </row>
     </table>
+    
+    <table name='game_field'>
+        <column>id</column>
+        <column>name</column>
+        <column>phone</column>
+        <column>address</column>
+        <column>price</column>
+        <column>contact</column>
+        <row>
+            <value>1</value>
+            <value>Furati</value>
+            <value>80012345678</value>
+            <value>Santa Ana</value>
+            <value>25000</value>
+            <value>Juan P</value>
+        </row>
+    </table>
+    
 </dataset>
