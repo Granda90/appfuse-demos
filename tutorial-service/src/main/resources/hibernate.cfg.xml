@@ -11,5 +11,6 @@
         <mapping class="org.appfuse.tutorial.model.Student"/>
         <mapping class="org.appfuse.tutorial.model.Person"/>
         <mapping class="org.appfuse.tutorial.model.PersonEmail"/>
+        <mapping class="org.appfuse.tutorial.model.GameField"/>
     </session-factory>
 </hibernate-configuration>
