@@ -172,4 +172,45 @@
         </row>
     </table>
     
+    <table name='company'>
+        <column>company_id</column>
+        <column>name</column>
+        <column>tax</column>
+        <row>
+            <value>1</value>
+            <value>Akamai</value>
+            <value>0.13</value>
+        </row>    
+    </table>
+    
+    <table name='company_contact'>
+    	<column>company_contact_id</column>
+        <column>name</column>
+        <column>phone</column>
+        <column>email</column>
+        <column>company_id</column>
+        <row>
+            <value>1</value>
+            <value>Maikol</value>  
+            <value>8888888</value>          
+            <value>mguzmana@akamai.com</value>
+            <value>1</value>
+        </row>    
+    </table> 
+
+    <table name='product'>
+        <column>product_id</column>
+        <column>quantity</column>
+        <column>name</column>
+        <column>price</column>
+        <column>company_id</column>
+        <row>
+            <value>1</value>
+            <value>5</value>
+            <value>DSA</value>
+            <value>5000</value>
+            <value>1</value>
+        </row>    
+    </table>
+    
 </dataset>
